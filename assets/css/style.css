@@ -1,0 +1,434 @@
+/* Dark Mode Theme for Age of Empires IV Content Editor API Documentation */
+
+:root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --accent-primary: #4a90e2;
+    --accent-secondary: #5ca0f2;
+    --border-color: #404040;
+    --success-color: #50c878;
+    --warning-color: #ffb347;
+    --error-color: #ff6b6b;
+    --code-bg: #1e1e1e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Container Layout */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    padding: 2rem 0;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    left: 0;
+    top: 0;
+}
+
+.sidebar-header {
+    padding: 0 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sidebar-header h2 a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar-header h2 a:hover {
+    color: var(--accent-primary);
+}
+
+.nav-categories {
+    padding: 0 1.5rem;
+}
+
+.nav-categories h3 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 0.25rem;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.625rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.nav-link:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--accent-secondary);
+}
+
+.nav-link.active {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    padding: 2rem 3rem;
+    max-width: calc(100% - 280px);
+}
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* Links */
+a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-secondary);
+    text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+/* Code Blocks */
+code {
+    background-color: var(--code-bg);
+    color: var(--accent-secondary);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+pre {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    color: var(--text-primary);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    background-color: var(--bg-secondary);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+}
+
+td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-primary);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn:hover {
+    background-color: var(--accent-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+    text-decoration: none;
+}
+
+/* Quick Links Section */
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Intro Section */
+.intro-section {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+/* Info Boxes */
+.info-box {
+    background-color: var(--bg-secondary);
+    border-left: 4px solid var(--accent-primary);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+}
+
+.info-box.warning {
+    border-left-color: var(--warning-color);
+}
+
+.info-box.error {
+    border-left-color: var(--error-color);
+}
+
+.info-box.success {
+    border-left-color: var(--success-color);
+}
+
+/* API Method Box */
+.api-method {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.api-method h4 {
+    margin-top: 0;
+    color: var(--accent-primary);
+}
+
+.method-signature {
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Parameter Table */
+.param-table {
+    margin-top: 1rem;
+}
+
+/* Footer */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+    
+    .container {
+        flex-direction: column;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-color);
+}
+
+/* Tab Navigation (Widget Switcher) */
+.tab-container {
+    margin-top: 2rem;
+}
+
+.tab-nav {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-bottom: -2px;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}

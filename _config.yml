@@ -1,0 +1,29 @@
+# Site settings
+title: "Age of Empires IV Content Editor API"
+description: "Unofficial documentation for the Age of Empires IV Content Editor API"
+baseurl: "/aoeiv-unoffical-api"
+url: "https://callfreak.github.io"
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-cayman
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

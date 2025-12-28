@@ -1,0 +1,26 @@
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Dependency directories
+node_modules/
+vendor/bundle/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+*.log
+
+# Preview files (for local testing)
+preview.html
