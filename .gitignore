@@ -21,3 +21,6 @@ Thumbs.db
 
 # Build artifacts
 *.log
+
+# Preview files (for local testing)
+preview.html
