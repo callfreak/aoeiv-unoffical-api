@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Image API
+title: Generate Maps
 ---
 
 # Image API Documentation

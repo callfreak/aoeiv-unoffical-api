@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Code Examples
+title: API
 ---
 
 # Code Examples

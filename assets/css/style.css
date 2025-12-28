@@ -6,11 +6,11 @@
     --bg-tertiary: #262c36;
     --text-primary: #e0e0e0;
     --text-secondary: #b0b0b0;
-    --accent-primary: #4a90e2;
-    --accent-secondary: #5ca0f2;
+    --accent-primary: #ff6500;
+    --accent-secondary: #ff8600;
     --border-color: #404040;
     --success-color: #50c878;
-    --warning-color: #ffb347;
+    --warning-color: #fffc47;
     --error-color: #ff6b6b;
     --code-bg: #1e1e1e;
 }
@@ -50,7 +50,7 @@ body {
 
 .sidebar-header {
     padding: 0 1.5rem 1.5rem;
-    /* border-bottom: 1px solid var(--border-color); */
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 1.5rem;
 }
 
@@ -116,7 +116,8 @@ body {
     flex: 1;
     /* margin-left: 280px; */
     /* padding: 2rem 3rem; */
-    max-width: calc(100% - 280px);
+    /* max-width: calc(100% - 280px); */
+    align-content: center;
 }
 
 .content-wrapper {
@@ -138,7 +139,7 @@ h2 {
     margin-bottom: 1rem;
     color: var(--text-primary);
     font-weight: 600;
-    border-bottom: 2px solid var(--border-color);
+    /* border-bottom: 2px solid var(--border-color); */
     padding-bottom: 0.5rem;
 }
 

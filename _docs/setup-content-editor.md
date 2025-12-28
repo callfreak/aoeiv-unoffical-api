@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Text API
+title: Setup Content Editor
 ---
 
 # Text API Documentation
