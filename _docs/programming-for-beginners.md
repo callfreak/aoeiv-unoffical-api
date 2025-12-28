@@ -154,6 +154,7 @@ INSTEAD we should let the computer handle that! Like here:
 ```
 
 What happened here? <strong>PLAYERS</strong> is a Table(id + value) of all players in our match.
+
 Means each player is in this table like:
 
 | ID | Value |
