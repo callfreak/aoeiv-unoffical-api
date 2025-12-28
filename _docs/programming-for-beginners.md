@@ -17,12 +17,12 @@ Simple: He does from Line to Line.
 2. Reading/Execute Line 2
 3. Reading/Execute Line 3
 
-If a line is empty -> He ignores it and skip that line
+If a line is empty -> He ignores it and skip that line.
 If the line is only a comment -> Also ignoring that. 
 
 ### Comments
 
-Comments vary on the language and we will use a double minus '--' before the Comment to tell the Editor that he can skip it
+Comments vary on the language and we will use a double minus '--' before the Comment to tell the Editor that he can skip it.
 Comments are used for explaining code and making it better understandable for you and others.
 
 ```lua
@@ -40,7 +40,7 @@ doSomethingElse()
 ### IF and ELSE?
 
 A <strong>big</strong> statement in many, many languages you will find is the <strong>IF statement</strong>.
-Its opening a door but only with the right key... when u dont have the right key it will not open and be skipped.
+Its like opening a door but only with the right key... when u dont have the right key it will not open and be skipped.
 
 For example: We want reveal the player's position, if the player is playing as the 'English' Civ:
 
@@ -124,7 +124,6 @@ Really it would take too long and its not really dynamic, if the player count va
 INSTEAD we should let the computer handle that! Like here:
 
 ```lua
-
     -- We creating 4 Values with their value to 200
     foodAmount = 200
     woodAmount = 200
@@ -156,8 +155,9 @@ INSTEAD we should let the computer handle that! Like here:
 
 What happened here? <strong>PLAYERS</strong> is a Table(id + value) of all players in our match.
 Means each player is in this table like:
+
 | ID | Value |
-|-----------|------|
+|----|-------|
 | 0 | player 1 |
 | 1 | player 2 |
 | 2 | player 3 |
