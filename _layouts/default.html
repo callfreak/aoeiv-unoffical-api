@@ -33,15 +33,73 @@
                             Setup the Content Editor
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ site.baseurl }}/docs/generate-maps" class="nav-link{% if page.url contains '/generate-maps' %} active{% endif %}">
-                            Generate Maps
-                        </a>
+                    <li class="nav-item nav-item-expandable{% if page.url contains '/generate-maps' %} expanded{% endif %}">
+                        <div class="nav-link-wrapper">
+                            <a href="{{ site.baseurl }}/docs/generate-maps" class="nav-link{% if page.url contains '/generate-maps' %} active{% endif %}">
+                                Generate Maps
+                            </a>
+                            <button class="nav-toggle" aria-label="Toggle submenu">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="nav-sublist">
+                            <li class="nav-subitem">
+                                <a href="{{ site.baseurl }}/docs/generate-maps#the-grid" class="nav-sublink">
+                                    1. The Grid
+                                </a>
+                            </li>
+                            <li class="nav-subitem">
+                                <a href="{{ site.baseurl }}/docs/generate-maps#code-workflow" class="nav-sublink">
+                                    2. Code Workflow
+                                </a>
+                            </li>
+                            <li class="nav-subitem">
+                                <a href="{{ site.baseurl }}/docs/generate-maps#supported-formats" class="nav-sublink">
+                                    3. Supported Formats
+                                </a>
+                            </li>
+                            <li class="nav-subitem">
+                                <a href="{{ site.baseurl }}/docs/generate-maps#endpoints" class="nav-sublink">
+                                    4. Endpoints
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ site.baseurl }}/docs/api" class="nav-link{% if page.url contains '/api' %} active{% endif %}">
-                            API Documentation
-                        </a>
+                    <li class="nav-item nav-item-expandable{% if page.url contains '/api' %} expanded{% endif %}">
+                        <div class="nav-link-wrapper">
+                            <a href="{{ site.baseurl }}/docs/api" class="nav-link{% if page.url contains '/api' %} active{% endif %}">
+                                API Documentation
+                            </a>
+                            <button class="nav-toggle" aria-label="Toggle submenu">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="nav-sublist">
+                            <li class="nav-subitem">
+                                <a href="{{ site.baseurl }}/docs/api#javascript-examples" class="nav-sublink">
+                                    1. JavaScript Examples
+                                </a>
+                            </li>
+                            <li class="nav-subitem">
+                                <a href="{{ site.baseurl }}/docs/api#python-examples" class="nav-sublink">
+                                    2. Python Examples
+                                </a>
+                            </li>
+                            <li class="nav-subitem">
+                                <a href="{{ site.baseurl }}/docs/api#complete-workflow" class="nav-sublink">
+                                    3. Complete Workflow
+                                </a>
+                            </li>
+                            <li class="nav-subitem">
+                                <a href="{{ site.baseurl }}/docs/api#error-handling" class="nav-sublink">
+                                    4. Error Handling
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <!-- <li class="nav-item">
                         <a href="{{ site.baseurl }}/docs/reference" class="nav-link{% if page.url contains '/reference' %} active{% endif %}">

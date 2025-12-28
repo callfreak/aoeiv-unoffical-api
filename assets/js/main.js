@@ -20,6 +20,22 @@ function switchTab(tabName, event) {
     }
 }
 
+// Sidebar navigation expand/collapse
+function toggleNavItem(button) {
+    const navItem = button.closest('.nav-item-expandable');
+    if (navItem) {
+        navItem.classList.toggle('expanded');
+        
+        // Save state to localStorage
+        const navLink = navItem.querySelector('.nav-link');
+        if (navLink) {
+            const href = navLink.getAttribute('href');
+            const isExpanded = navItem.classList.contains('expanded');
+            localStorage.setItem('nav-expanded-' + href, isExpanded);
+        }
+    }
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     // Add smooth scrolling for anchor links
@@ -43,4 +59,42 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.add('active');
         }
     });
+    
+    // Set up toggle buttons for expandable nav items
+    document.querySelectorAll('.nav-toggle').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleNavItem(this);
+        });
+    });
+    
+    // Restore expanded state from localStorage
+    document.querySelectorAll('.nav-item-expandable').forEach(navItem => {
+        const navLink = navItem.querySelector('.nav-link');
+        if (navLink) {
+            const href = navLink.getAttribute('href');
+            const savedState = localStorage.getItem('nav-expanded-' + href);
+            
+            // If there's a saved state, use it; otherwise keep the default state from HTML
+            if (savedState !== null) {
+                if (savedState === 'true') {
+                    navItem.classList.add('expanded');
+                } else {
+                    navItem.classList.remove('expanded');
+                }
+            }
+        }
+    });
+    
+    // Highlight active sublinks based on current hash
+    const currentHash = window.location.hash;
+    if (currentHash) {
+        document.querySelectorAll('.nav-sublink').forEach(sublink => {
+            const sublinkHref = sublink.getAttribute('href');
+            if (sublinkHref && sublinkHref.includes(currentHash)) {
+                sublink.classList.add('active');
+            }
+        });
+    }
 });
