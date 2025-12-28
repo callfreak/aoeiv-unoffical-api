@@ -1,5 +1,5 @@
 // Tab switching functionality
-function switchTab(tabName) {
+function switchTab(tabName, event) {
     // Hide all tab contents
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => content.classList.remove('active'));
@@ -15,9 +15,8 @@ function switchTab(tabName) {
     }
     
     // Add active class to clicked button
-    const clickedButton = Array.from(buttons).find(btn => btn.textContent.toLowerCase().includes(tabName));
-    if (clickedButton) {
-        clickedButton.classList.add('active');
+    if (event && event.target) {
+        event.target.classList.add('active');
     }
 }
 

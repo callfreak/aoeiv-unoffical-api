@@ -9,9 +9,9 @@ Complete reference documentation for the Age of Empires IV Content Editor API.
 
 <div class="tab-container">
     <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab('text')">Text API</button>
-        <button class="tab-btn" onclick="switchTab('image')">Image API</button>
-        <button class="tab-btn" onclick="switchTab('auth')">Authentication</button>
+        <button class="tab-btn active" onclick="switchTab('text', event)">Text API</button>
+        <button class="tab-btn" onclick="switchTab('image', event)">Image API</button>
+        <button class="tab-btn" onclick="switchTab('auth', event)">Authentication</button>
     </div>
     
     <div id="tab-text" class="tab-content active">
@@ -436,7 +436,7 @@ X-RateLimit-Reset: 1704038400</code></pre>
 </div>
 
 <script>
-function switchTab(tabName) {
+function switchTab(tabName, event) {
     // Hide all tab contents
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => content.classList.remove('active'));
@@ -449,7 +449,9 @@ function switchTab(tabName) {
     document.getElementById('tab-' + tabName).classList.add('active');
     
     // Add active class to clicked button
-    event.target.classList.add('active');
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
 }
 </script>
 
