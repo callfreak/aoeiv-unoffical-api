@@ -3,118 +3,53 @@ layout: default
 title: Debug your Mod
 ---
 
-# Introduction
+# Prerequisites
 
-The Age of Empires IV Content Editor is free to use for everyone who bought the official game Age of Empires IV, however 
-the Editor is not well documented neither the internet has many guidlines to it... espcially closed discord lobbies makes
-it hard for the common "gamer" with a little of programming knowledge to gain important information and demotivates a lot.
-In the end with a well document guide, I think more and even more quality Mods would be created if everyone has the same
-starting point or "go-to" source when they want to start getting into modding for AoE IV.
+- Launch Option/Start arguments are set. If not look [here]({{ site.baseurl }}/docs/setup-content-editor)
+- Age of Empires IV Content Editor (Beta) or EssenceEditor.exe is started
+- Age of Empires IV is started and your mod is active set!
 
-## What do I need?
+# Attach the Editor to the Game
 
-To use the Content Editor and start making mods, you need:
+<div class="info-box warning">
+<strong>Note:</strong> <strong>Before</strong> starting your game make sure you <strong>build</strong> your mod!
+</div>
 
-- **Windows Operating System(OS)**: Mods can only be create with the Content Editor and as for now its only available on Windows machines
-- **An original copy of AoE IV**: Buy it on the Microsoft Store or on Steam(recommend) to get started
-- **Little programming knowledge**: Things like: IF..ELSE / FOR-Loops should be known before we get a hand on making mods
-- **Motivation**: Making basic Mods isn't difficult, but nothing works on the 1st try! Give urself time and dont rush.
+Inside the Content Editor open the "Script" tab -> In there you can now press "Attach", to connect both apps together.
 
-## Getting things together
+<div class="gif-frame">
+	<img src="https://raw.githubusercontent.com/callfreak/aoeiv-unoffical-api/refs/heads/main/assets/images/attach_example.png" alt="Not Found" class="responsive-gif">
+</div>
 
-### Buying Age of Empires IV
+Done! Your Conent Editor is now connected to your current Game.
 
-Following stores offer an original copy of your favorite game:
+# Breakpoints
 
-1. **Windows Store**: [Buy it on the Windows Store →](https://www.xbox.com/games/store/age-of-empires-iv-anniversary-edition/9n94ncgm1q2n)
-2. **Steam**: [Buy it on the Steam →](https://store.steampowered.com/app/1466860/Age_of_Empires_IV_Anniversary_Edition/)
+The computer will execute the line of codes of your mod very fast! And sometimes we want to see what happens to our variables and code when this happens. For this we have
+<strong>Breakpoints</strong>. If these are defined while we are in the debbuging mode -> the game stops and our code pauses at the reached Breakpoint ready for our next
+action.
 
-### Programming knowldege
+Next actions could be:
 
-For those who haven't started with programming yet, you can either:
+- Unpause and play
+- Step into the next code
+- Skip code
 
-- Watch some simple YouTube tutorials with keywords like: "if else statements" or "for loops"
-- Jump to my little [Programming for beginners]({{ site.baseurl }}/docs/programming-for-beginners)
+Breakpoints can be created and deleted by pressing <strong>before</strong> the Number of the Line of Code:
 
-## Getting Started
+<div class="gif-frame">
+	<img src="https://raw.githubusercontent.com/callfreak/aoeiv-unoffical-api/refs/heads/main/assets/images/breakpoint_example.png" alt="Not Found" class="responsive-gif">
+</div>
 
-To begin using the Content Editor API, you'll need:
+The active breakpoint where the game pauses to is marked with an Arrow inside the <strong>Red Dot</strong>.
+While a Breakpoint is active you can "Hover" with your mouse over variables and see they current values.
 
-1. **API Key**: Obtain from the developer portal
-2. **Content Editor Installation**: Version 2.0 or higher
-3. **Basic Understanding**: Familiarity with REST APIs and JSON
+# Errors and Expections
 
-### Authentication
-
-All API requests require authentication using an API key:
-
-```javascript
-const headers = {
-    'Authorization': 'Bearer YOUR_API_KEY',
-    'Content-Type': 'application/json'
-};
-```
-
-### Base URL
-
-All API endpoints are relative to the base URL:
-
-```
-https://api.aoe4-content.example.com/v1
-```
-
-## API Categories
-
-### Text API
-
-The Text API provides endpoints for:
-
-- Creating and updating localization strings
-- Managing text collections
-- Batch text operations
-- Text validation and verification
-
-[Learn more about the Text API →]({{ site.baseurl }}/docs/text-api)
-
-### Image API
-
-The Image API provides endpoints for:
-
-- Uploading and managing image assets
-- Image format conversion
-- Compression and optimization
-- Batch image processing
-
-[Learn more about the Image API →]({{ site.baseurl }}/docs/image-api)
-
-## Rate Limits
-
-The API enforces the following rate limits:
-
-| Tier | Requests per minute | Requests per day |
-|------|---------------------|------------------|
-| Free | 60 | 5,000 |
-| Pro | 300 | 50,000 |
-| Enterprise | 1,000 | Unlimited |
-
-## Status Codes
-
-The API uses standard HTTP status codes:
-
-| Code | Description |
-|------|-------------|
-| 200 | Success |
-| 201 | Created |
-| 400 | Bad Request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Rate Limit Exceeded |
-| 500 | Internal Server Error |
+When an exception occurs on the scar interface or the game crashes -> The attached Editor will print the message to it's <strong>Output Tab</strong>.
+When a fatal exception occurs the game closes after our Content Editor "detaches".
 
 ## Next Steps
 
-- Explore the [Text API documentation]({{ site.baseurl }}/docs/text-api)
-- Check out the [Image API documentation]({{ site.baseurl }}/docs/image-api)
-- View [code examples]({{ site.baseurl }}/docs/examples)
+- Create your first [Generated Map]({{ site.baseurl }}/docs/generate-maps)
 - Browse the [API reference]({{ site.baseurl }}/docs/reference)

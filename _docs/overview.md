@@ -6,9 +6,9 @@ title: Overview
 # Introduction
 
 The Age of Empires IV Content Editor is free to use for everyone who bought the official game Age of Empires IV, however 
-the Editor is not well documented neither the internet has many guidlines to it... espcially closed discord lobbies makes
-it hard for the common "gamer" with a little of programming knowledge to gain important information and demotivates a lot.
-In the end with a well document guide, I think more and even more quality Mods would be created if everyone has the same
+the Editor is not well documented neither the internet has many guidlines to it... especially closed discord lobbies makes
+it hard for the common "gamer" with a little of programming knowledge to gain important information and it demotivates a lot.
+In the end with a well document guide, I think more mods and even more quality mods would be created, if everyone has the same
 starting point or "go-to" source when they want to start getting into modding for AoE IV.
 
 ## What do I need?
@@ -16,7 +16,7 @@ starting point or "go-to" source when they want to start getting into modding fo
 To use the Content Editor and start making mods, you need:
 
 - **Windows Operating System(OS)**: Mods can only be create with the Content Editor and as for now its only available on Windows machines
-- **An original copy of AoE IV**: Buy it on the Microsoft Store or on Steam(recommend) to get started
+- **An original copy of AoE IV**: Buy it on the Microsoft Store or on Steam to get started
 - **Little programming knowledge**: Things like: IF..ELSE / FOR-Loops should be known before we get a hand on making mods
 - **Motivation**: Making basic Mods isn't difficult, but nothing works on the 1st try! Give urself time and dont rush.
 
@@ -38,10 +38,10 @@ For those who haven't started with programming yet, you can either:
 
 ### Motivation
 
-Beginner and advanced modders and programmers experience sometimes a lack of motivation... i know that too. But these are mostly
+Beginner, advanced modders and programmers experience sometimes a lack of motivation... i know that too. But these are mostly
 temporary and if you finish your project and it works -> Its the best feeling! 
-Who knows maybe someday I can even learn new things about this Conent Editor from you! By an Email or in your future Tutorial that
-I will find on YouTube. Keep ur head up!
+Who knows maybe someday I can even learn new things about this Content Editor from you! By an Email or in your future Tutorial that
+I will find online.
 
 <!-- ### Authentication
 

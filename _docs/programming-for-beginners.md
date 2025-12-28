@@ -157,12 +157,12 @@ What happened here? <strong>PLAYERS</strong> is a Table(id + value) of all playe
 
 Means each player is in this table like:
 
-| ID | Value |
-|----|-------|
-| 0 | player 1 |
-| 1 | player 2 |
-| 2 | player 3 |
-| 3 | player 4 |
+| ID | Value | IsLocal? |
+|----|-------|----------|
+| 0 | player 1 | True |
+| 1 | player 2 | False |
+| 2 | player 3 | False |
+| 3 | player 4 | False |
 
 We split them into i(as ID) and player(as Value) -> The FOR and the keyword IN telling us:
 For EACH player inside the Table(PLAYERS) do that: And it will repeat the inside code for each single value it has.
