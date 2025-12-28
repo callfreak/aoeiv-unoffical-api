@@ -281,7 +281,11 @@ tr:last-child td {
 .intro-section {
     background-color: var(--bg-secondary);
     border-radius: 8px;
-    padding: 2rem;
+    /* padding: 2rem; */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0rem;
+    padding-bottom: 2rem;
     margin-top: 2rem;
     border: 1px solid var(--border-color);
 }
