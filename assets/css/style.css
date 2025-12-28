@@ -190,10 +190,12 @@ body {
     border-left-color: var(--accent-secondary);
 }
 
+/* Unused since active element visiblity has some bugs and wont be used anyway */
 .nav-sublink.active {
-    background-color: rgba(255, 101, 0, 0.1);
+    /* background-color: rgba(255, 101, 0, 0.1);
     color: var(--accent-primary);
-    border-left-color: var(--accent-primary);
+    border-left-color: var(--accent-primary); */
+    font-size: 0.875rem;
 }
 
 /* Main Content Area */
@@ -394,6 +396,21 @@ tr:last-child td {
 
 .info-box.success {
     border-left-color: var(--success-color);
+}
+
+/* Responsive GIFs */
+.responsive-gif {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 6px;
+}
+
+.gif-frame {
+    width: 100%;
+    overflow: hidden;
+    display: block;
 }
 
 /* API Method Box */

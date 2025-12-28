@@ -3,324 +3,44 @@ layout: default
 title: Setup Content Editor
 ---
 
-# Text API Documentation
+# Setup Content Editor
 
-The Text API allows you to manage all text-based content in the Age of Empires IV Content Editor. This includes localization strings, UI text, in-game messages, and more.
+The Content Editor is the main tool for creating mods in Age of Empires IV. You can either find them in your local
+installation file of your game or by installing the Age of Empires IV Content Editor (Beta) on steam.
 
-## Endpoints
+## Within the game files
 
-### List Text Entries
+As soon as you install AoE IV, you most likely also download the "<strong>EssenceEditor.exe</strong>" within the files. This is
+located in the root folder of your game. For example:
 
-Retrieve a list of all text entries in your project.
-
-<div class="api-method">
-<h4>GET /text/entries</h4>
-
-<div class="method-signature">
-GET /text/entries?page=1&limit=50&locale=en-US
-</div>
-
-**Query Parameters:**
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| page | integer | No | Page number (default: 1) |
-| limit | integer | No | Results per page (default: 50, max: 100) |
-| locale | string | No | Filter by locale (e.g., en-US, de-DE) |
-| category | string | No | Filter by category |
-
-**Response:**
-
-```json
-{
-    "data": [
-        {
-            "id": "text_001",
-            "key": "ui.menu.start_game",
-            "value": "Start Game",
-            "locale": "en-US",
-            "category": "ui",
-            "created_at": "2025-01-15T10:30:00Z",
-            "updated_at": "2025-01-15T10:30:00Z"
-        }
-    ],
-    "pagination": {
-        "current_page": 1,
-        "total_pages": 10,
-        "total_items": 487
-    }
-}
 ```
-</div>
-
-### Get Text Entry
-
-Retrieve a specific text entry by ID.
-
-<div class="api-method">
-<h4>GET /text/entries/:id</h4>
-
-<div class="method-signature">
-GET /text/entries/text_001
-</div>
-
-**Response:**
-
-```json
-{
-    "id": "text_001",
-    "key": "ui.menu.start_game",
-    "value": "Start Game",
-    "locale": "en-US",
-    "category": "ui",
-    "metadata": {
-        "max_length": 50,
-        "context": "Main menu button"
-    },
-    "translations": [
-        {
-            "locale": "de-DE",
-            "value": "Spiel starten"
-        },
-        {
-            "locale": "fr-FR",
-            "value": "Commencer le jeu"
-        }
-    ]
-}
-```
-</div>
-
-### Create Text Entry
-
-Create a new text entry.
-
-<div class="api-method">
-<h4>POST /text/entries</h4>
-
-<div class="method-signature">
-POST /text/entries
-</div>
-
-**Request Body:**
-
-```json
-{
-    "key": "ui.menu.new_button",
-    "value": "New Game",
-    "locale": "en-US",
-    "category": "ui",
-    "metadata": {
-        "max_length": 50,
-        "context": "Menu button for starting new game"
-    }
-}
+C:\Program Files (x86)\Steam\steamapps\common\Age of Empires IV
 ```
 
-**Response:**
+## By installing the AoE IV Content Editor (Beta)
 
-```json
-{
-    "id": "text_123",
-    "key": "ui.menu.new_button",
-    "value": "New Game",
-    "locale": "en-US",
-    "category": "ui",
-    "created_at": "2025-12-28T12:00:00Z"
-}
-```
+### Steam
+
+1. Make sure that you have all filters set in your "<strong>Steam-Library</strong>".
+
+<div class="gif-frame">
+	<img src="/assets/images/gifs/filter-setup-part1.gif" alt="Not Found" class="responsive-gif">
 </div>
 
-### Update Text Entry
+2. Find the <strong>Age of Empires IV Content Editor (Beta)</strong> in your library and install it.
 
-Update an existing text entry.
-
-<div class="api-method">
-<h4>PUT /text/entries/:id</h4>
-
-<div class="method-signature">
-PUT /text/entries/text_001
+<div class="gif-frame">
+	<img src="/assets/images/gifs/filter-setup-part2.gif" alt="Not Found" class="responsive-gif">
 </div>
 
-**Request Body:**
-
-```json
-{
-    "value": "Begin Game",
-    "metadata": {
-        "updated_reason": "User feedback"
-    }
-}
-```
-
-**Response:**
-
-```json
-{
-    "id": "text_001",
-    "key": "ui.menu.start_game",
-    "value": "Begin Game",
-    "locale": "en-US",
-    "updated_at": "2025-12-28T12:30:00Z"
-}
-```
-</div>
-
-### Delete Text Entry
-
-Delete a text entry.
-
-<div class="api-method">
-<h4>DELETE /text/entries/:id</h4>
-
-<div class="method-signature">
-DELETE /text/entries/text_001
-</div>
-
-**Response:**
-
-```json
-{
-    "message": "Text entry deleted successfully",
-    "id": "text_001"
-}
-```
-</div>
-
-## Batch Operations
-
-### Bulk Create Text Entries
-
-Create multiple text entries in a single request.
-
-<div class="api-method">
-<h4>POST /text/batch</h4>
-
-<div class="method-signature">
-POST /text/batch
-</div>
-
-**Request Body:**
-
-```json
-{
-    "entries": [
-        {
-            "key": "ui.menu.settings",
-            "value": "Settings",
-            "locale": "en-US",
-            "category": "ui"
-        },
-        {
-            "key": "ui.menu.exit",
-            "value": "Exit",
-            "locale": "en-US",
-            "category": "ui"
-        }
-    ]
-}
-```
-
-**Response:**
-
-```json
-{
-    "created": 2,
-    "failed": 0,
-    "entries": [
-        {"id": "text_124", "key": "ui.menu.settings"},
-        {"id": "text_125", "key": "ui.menu.exit"}
-    ]
-}
-```
-</div>
-
-## Localization
-
-### Add Translation
-
-Add a translation to an existing text entry.
-
-<div class="api-method">
-<h4>POST /text/entries/:id/translations</h4>
-
-<div class="method-signature">
-POST /text/entries/text_001/translations
-</div>
-
-**Request Body:**
-
-```json
-{
-    "locale": "es-ES",
-    "value": "Iniciar Juego"
-}
-```
-
-**Response:**
-
-```json
-{
-    "id": "text_001",
-    "translations_count": 4,
-    "latest_translation": {
-        "locale": "es-ES",
-        "value": "Iniciar Juego",
-        "created_at": "2025-12-28T12:45:00Z"
-    }
-}
-```
-</div>
-
-## Text Validation
-
-The API automatically validates text entries for:
-
-- **Length limits**: Ensures text doesn't exceed specified maximum length
-- **Special characters**: Validates allowed character sets
-- **Placeholders**: Checks for valid placeholder syntax (e.g., `{player_name}`)
-- **Duplicate keys**: Prevents duplicate key creation within the same locale
+## Setup the debug arguments
 
 <div class="info-box warning">
-<strong>Note:</strong> Text entries with placeholders must maintain the same placeholders across all translations.
+<strong>Note:</strong> <strong>Before</strong> using your game regulary for <strong>online matches, remove the arguments again!</strong>
 </div>
 
-## Export Text
-
-Export text entries for use in the game.
-
-<div class="api-method">
-<h4>POST /text/export</h4>
-
-<div class="method-signature">
-POST /text/export
+<div class="info-box warning">
+<strong>Note:</strong> This page is missing information on the Windows Store procedure.
+If you want to add some knowledge to this Page please write an email with additional information to:
+<strong>bhm.manuel@gmail.com</strong>
 </div>
-
-**Request Body:**
-
-```json
-{
-    "locale": "en-US",
-    "format": "json",
-    "category": "ui"
-}
-```
-
-**Response:**
-
-Returns a downloadable file in the specified format (JSON, XML, or CSV).
-</div>
-
-## Best Practices
-
-1. **Use meaningful keys**: Structure keys hierarchically (e.g., `ui.menu.start_game`)
-2. **Maintain context**: Always provide context in metadata for translators
-3. **Batch operations**: Use bulk endpoints for creating/updating multiple entries
-4. **Version control**: Keep track of text changes using the API's versioning
-5. **Test translations**: Verify translated text fits within UI constraints
-
-## Related
-
-- [Image API Documentation]({{ site.baseurl }}/docs/image-api)
-- [Code Examples]({{ site.baseurl }}/docs/examples)
-- [API Reference]({{ site.baseurl }}/docs/reference)

@@ -3,47 +3,47 @@ layout: default
 title: Overview
 ---
 
-# API Overview
+# Introduction
 
-The Age of Empires IV Content Editor API provides a comprehensive interface for managing game content programmatically. This unofficial API documentation covers the essential operations for working with text and image assets in the Content Editor.
+The Age of Empires IV Content Editor is free to use for everyone who bought the official game Age of Empires IV, however 
+the Editor is not well documented neither the internet has many guidlines to it... espcially closed discord lobbies makes
+it hard for the common "gamer" with a little of programming knowledge to gain important information and demotivates a lot.
+In the end with a well document guide, I think more and even more quality Mods would be created if everyone has the same
+starting point or "go-to" source when they want to start getting into modding for AoE IV.
 
-## Architecture
+## What do I need?
 
-The Content Editor API is built around a modular architecture that separates concerns between different content types:
+To use the Content Editor and start making mods, you need:
 
-- **Text Module**: Handles all text-based content including localization strings
-- **Image Module**: Manages image assets, compression, and optimization
-- **Validation Module**: Ensures content integrity and format compliance
-- **Export Module**: Handles content packaging and deployment
+- **Windows Operating System(OS)**: Mods can only be create with the Content Editor and as for now its only available on Windows machines
+- **An original copy of AoE IV**: Buy it on the Microsoft Store or on Steam(recommend) to get started
+- **Little programming knowledge**: Things like: IF..ELSE / FOR-Loops should be known before we get a hand on making mods
+- **Motivation**: Making basic Mods isn't difficult, but nothing works on the 1st try! Give urself time and dont rush.
 
-## Core Concepts
+## Getting things together
 
-### Content Types
+### Buying Age of Empires IV
 
-The API supports two primary content types:
+Following stores offer an original copy of your favorite game:
 
-1. **Text Content**: Localization strings, UI text, in-game messages
-2. **Image Content**: Textures, icons, UI elements, promotional materials
+1. **Windows Store**: [Buy it on the Windows Store →](https://www.xbox.com/games/store/age-of-empires-iv-anniversary-edition/9n94ncgm1q2n)
+2. **Steam**: [Buy it on the Steam →](https://store.steampowered.com/app/1466860/Age_of_Empires_IV_Anniversary_Edition/)
 
-### API Design
+### Programming knowldege
 
-The API follows RESTful principles and provides:
+For those who haven't started with programming yet, you can either:
 
-- Consistent endpoint structure
-- JSON request/response format
-- Comprehensive error handling
-- Rate limiting and authentication
-- Batch operation support
+- Watch some simple [YouTube](https://www.youtube.com/) tutorials with keywords like: "if else statements" or "for loops"
+- Jump to my little [Programming for beginners]({{ site.baseurl }}/docs/programming-for-beginners) to get you started!
 
-## Getting Started
+### Motivation
 
-To begin using the Content Editor API, you'll need:
+Beginner and advanced modders and programmers experience sometimes a lack of motivation... i know that too. But these are mostly
+temporary and if you finish your project and it works -> Its the best feeling! 
+Who knows maybe someday I can even learn new things about this Conent Editor from you! By an Email or in your future Tutorial that
+I will find on YouTube. Keep ur head up!
 
-1. **API Key**: Obtain from the developer portal
-2. **Content Editor Installation**: Version 2.0 or higher
-3. **Basic Understanding**: Familiarity with REST APIs and JSON
-
-### Authentication
+<!-- ### Authentication
 
 All API requests require authentication using an API key:
 
@@ -52,41 +52,17 @@ const headers = {
     'Authorization': 'Bearer YOUR_API_KEY',
     'Content-Type': 'application/json'
 };
-```
+``` -->
 
-### Base URL
+<!-- ### Base URL
 
 All API endpoints are relative to the base URL:
 
 ```
 https://api.aoe4-content.example.com/v1
-```
+``` -->
 
-## API Categories
-
-### Text API
-
-The Text API provides endpoints for:
-
-- Creating and updating localization strings
-- Managing text collections
-- Batch text operations
-- Text validation and verification
-
-[Learn more about the Text API →]({{ site.baseurl }}/docs/text-api)
-
-### Image API
-
-The Image API provides endpoints for:
-
-- Uploading and managing image assets
-- Image format conversion
-- Compression and optimization
-- Batch image processing
-
-[Learn more about the Image API →]({{ site.baseurl }}/docs/image-api)
-
-## Rate Limits
+<!-- ## Rate Limits
 
 The API enforces the following rate limits:
 
@@ -94,9 +70,9 @@ The API enforces the following rate limits:
 |------|---------------------|------------------|
 | Free | 60 | 5,000 |
 | Pro | 300 | 50,000 |
-| Enterprise | 1,000 | Unlimited |
+| Enterprise | 1,000 | Unlimited | -->
 
-## Status Codes
+<!-- ## Status Codes
 
 The API uses standard HTTP status codes:
 
@@ -109,11 +85,182 @@ The API uses standard HTTP status codes:
 | 403 | Forbidden |
 | 404 | Not Found |
 | 429 | Rate Limit Exceeded |
-| 500 | Internal Server Error |
+| 500 | Internal Server Error | 
+
+### List Text Entries
+
+Retrieve a list of all text entries in your project.
+
+<div class="api-method">
+<h4>GET /text/entries</h4>
+
+<div class="method-signature">
+GET /text/entries?page=1&limit=50&locale=en-US
+</div>
+
+**Query Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| page | integer | No | Page number (default: 1) |
+| limit | integer | No | Results per page (default: 50, max: 100) |
+| locale | string | No | Filter by locale (e.g., en-US, de-DE) |
+| category | string | No | Filter by category |
+
+**Response:**
+
+```json
+{
+    "data": [
+        {
+            "id": "text_001",
+            "key": "ui.menu.start_game",
+            "value": "Start Game",
+            "locale": "en-US",
+            "category": "ui",
+            "created_at": "2025-01-15T10:30:00Z",
+            "updated_at": "2025-01-15T10:30:00Z"
+        }
+    ],
+    "pagination": {
+        "current_page": 1,
+        "total_pages": 10,
+        "total_items": 487
+    }
+}
+```
+</div>
+
+<div class="api-method">
+<h4>POST /text/entries</h4>
+
+<div class="method-signature">
+POST /text/entries
+</div>
+
+**Request Body:**
+
+```json
+{
+    "key": "ui.menu.new_button",
+    "value": "New Game",
+    "locale": "en-US",
+    "category": "ui",
+    "metadata": {
+        "max_length": 50,
+        "context": "Menu button for starting new game"
+    }
+}
+```
+
+**Response:**
+
+```json
+{
+    "id": "text_123",
+    "key": "ui.menu.new_button",
+    "value": "New Game",
+    "locale": "en-US",
+    "category": "ui",
+    "created_at": "2025-12-28T12:00:00Z"
+}
+```
+</div>
+
+<div class="api-method">
+<h4>PUT /text/entries/:id</h4>
+
+<div class="method-signature">
+PUT /text/entries/text_001
+</div>
+
+**Request Body:**
+
+```json
+{
+    "value": "Begin Game",
+    "metadata": {
+        "updated_reason": "User feedback"
+    }
+}
+```
+
+**Response:**
+
+```json
+{
+    "id": "text_001",
+    "key": "ui.menu.start_game",
+    "value": "Begin Game",
+    "locale": "en-US",
+    "updated_at": "2025-12-28T12:30:00Z"
+}
+```
+</div>
+
+<div class="api-method">
+<h4>DELETE /text/entries/:id</h4>
+
+<div class="method-signature">
+DELETE /text/entries/text_001
+</div>
+
+**Response:**
+
+```json
+{
+    "message": "Text entry deleted successfully",
+    "id": "text_001"
+}
+```
+</div>
+
+Create multiple text entries in a single request.
+
+<div class="api-method">
+<h4>POST /text/batch</h4>
+
+<div class="method-signature">
+POST /text/batch
+</div>
+
+**Request Body:**
+
+```json
+{
+    "entries": [
+        {
+            "key": "ui.menu.settings",
+            "value": "Settings",
+            "locale": "en-US",
+            "category": "ui"
+        },
+        {
+            "key": "ui.menu.exit",
+            "value": "Exit",
+            "locale": "en-US",
+            "category": "ui"
+        }
+    ]
+}
+```
+
+**Response:**
+
+```json
+{
+    "created": 2,
+    "failed": 0,
+    "entries": [
+        {"id": "text_124", "key": "ui.menu.settings"},
+        {"id": "text_125", "key": "ui.menu.exit"}
+    ]
+}
+```
+</div>
+-->
 
 ## Next Steps
 
-- Explore the [Text API documentation]({{ site.baseurl }}/docs/text-api)
-- Check out the [Image API documentation]({{ site.baseurl }}/docs/image-api)
-- View [code examples]({{ site.baseurl }}/docs/examples)
-- Browse the [API reference]({{ site.baseurl }}/docs/reference)
+- Create your first [Generated Map]({{ site.baseurl }}/docs/generate-maps)
+- [Debug your Mod]({{ site.baseurl }}/docs/debug-your-mod)
