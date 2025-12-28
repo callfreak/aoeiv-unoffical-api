@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <script src="{{ site.baseurl }}/assets/js/main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2><a href="{{ site.baseurl }}/">{{ site.title }}</a></h2>
+            </div>
+            <div class="nav-categories">
+                <h3>Documentation</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="{{ site.baseurl }}/" class="nav-link{% if page.url == '/' %} active{% endif %}">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ site.baseurl }}/docs/overview" class="nav-link{% if page.url contains '/overview' %} active{% endif %}">
+                            Overview
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ site.baseurl }}/docs/text-api" class="nav-link{% if page.url contains '/text-api' %} active{% endif %}">
+                            Text API
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ site.baseurl }}/docs/image-api" class="nav-link{% if page.url contains '/image-api' %} active{% endif %}">
+                            Image API
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ site.baseurl }}/docs/examples" class="nav-link{% if page.url contains '/examples' %} active{% endif %}">
+                            Code Examples
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ site.baseurl }}/docs/reference" class="nav-link{% if page.url contains '/reference' %} active{% endif %}">
+                            API Reference
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                {{ content }}
+            </div>
+            
+            <footer class="footer">
+                <p>&copy; 2025 Unofficial Age of Empires IV Content Editor API Documentation</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
