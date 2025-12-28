@@ -24,13 +24,13 @@ C:\Program Files (x86)\Steam\steamapps\common\Age of Empires IV
 1. Make sure that you have all filters set in your "<strong>Steam-Library</strong>".
 
 <div class="gif-frame">
-	<img src="./assets/images/gifs/filter-setup-part1.gif" alt="Not Found" class="responsive-gif">
+	<img src="/./assets/images/gifs/filter-setup-part1.gif" alt="Not Found" class="responsive-gif">
 </div>
 
 2. Find the <strong>Age of Empires IV Content Editor (Beta)</strong> in your library and install it.
 
 <div class="gif-frame">
-	<img src="./assets/images/gifs/filter-setup-part2.gif" alt="Not Found" class="responsive-gif">
+	<img src="/./assets/images/gifs/filter-setup-part2.gif" alt="Not Found" class="responsive-gif">
 </div>
 
 ## Setup the debug arguments
