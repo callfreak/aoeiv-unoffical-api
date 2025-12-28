@@ -92,8 +92,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentHash) {
         document.querySelectorAll('.nav-sublink').forEach(sublink => {
             const sublinkHref = sublink.getAttribute('href');
-            if (sublinkHref && sublinkHref.includes(currentHash)) {
-                sublink.classList.add('active');
+            if (sublinkHref) {
+                // Extract the hash portion from the href
+                const sublinkHash = sublinkHref.split('#')[1];
+                const currentHashValue = currentHash.substring(1); // Remove the # prefix
+                
+                if (sublinkHash && sublinkHash === currentHashValue) {
+                    sublink.classList.add('active');
+                }
             }
         });
     }
