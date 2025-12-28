@@ -44,7 +44,7 @@ Breakpoints can be created and deleted by pressing <strong>before</strong> the N
 The active breakpoint where the game pauses to is marked with an Arrow inside the <strong>Red Dot</strong>.
 While a Breakpoint is active you can "Hover" with your mouse over variables and see they current values.
 
-# Errors and Expections
+# Errors and Exceptions
 
 When an exception occurs on the scar interface or the game crashes -> The attached Editor will print the message to it's <strong>Output Tab</strong>.
 When a fatal exception occurs the game closes after our Content Editor "detaches".
