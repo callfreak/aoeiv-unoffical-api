@@ -26,8 +26,8 @@ To use the Content Editor and start making mods, you need:
 
 Following stores offer an original copy of your favorite game:
 
-1. **Windows Store**: [Buy it on the Windows Store →](https://www.xbox.com/games/store/age-of-empires-iv-anniversary-edition/9n94ncgm1q2n)
-2. **Steam**: [Buy it on the Steam →](https://store.steampowered.com/app/1466860/Age_of_Empires_IV_Anniversary_Edition/)
+1. **Windows Store**: [Buy it on the Windows Store](https://www.xbox.com/games/store/age-of-empires-iv-anniversary-edition/9n94ncgm1q2n)
+2. **Steam**: [Buy it on the Steam](https://store.steampowered.com/app/1466860/Age_of_Empires_IV_Anniversary_Edition/)
 
 ### Programming knowldege
 

@@ -39,7 +39,7 @@ doSomethingElse()
 
 ### IF and ELSE?
 
-A <strong>big</strong> statement in many, many languages you will find is the <strong>IF statement</strong>.
+A **big** statement in many, many languages you will find is the **IF statement**.
 Its like opening a door but only with the right key... when u dont have the right key it will not open and be skipped.
 
 For example: We want reveal the player's position, if the player is playing as the 'English' Civ:
@@ -60,7 +60,7 @@ if playerOne_civ == "english" then
 end
 ```
 
-<strong>IF</strong> we want to ask more than just 1 condition, we can use keywords like 'and', 'or' for more complex
+**IF** we want to ask more than just 1 condition, we can use keywords like 'and', 'or' for more complex
 conditions:
 
 ```lua
@@ -153,7 +153,7 @@ INSTEAD we should let the computer handle that! Like here:
 	end
 ```
 
-What happened here? <strong>PLAYERS</strong> is a Table(id + value) of all players in our match.
+What happened here? **PLAYERS** is a Table(id + value) of all players in our match.
 
 Means each player is in this table like:
 

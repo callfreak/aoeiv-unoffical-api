@@ -10,7 +10,7 @@ installation file of your game or by installing the Age of Empires IV Content Ed
 
 ## Within the game files
 
-As soon as you install AoE IV, you most likely also download the "<strong>EssenceEditor.exe</strong>" within the files. This is
+As soon as you install AoE IV, you most likely also download the "**EssenceEditor.exe**" within the files. This is
 located in the root folder of your game. For example:
 
 ```
@@ -37,13 +37,13 @@ C:\Program Files (x86)\Steam\steamapps\common\Age of Empires IV
 
 ## Setup the debug arguments
 
-For debugging your mods and gather information from the running Game, you need to start Age of Empires IV with some <strong>Launch Options</strong>.
+For debugging your mods and gather information from the running Game, you need to start Age of Empires IV with some **Launch Options**.
 
 ### Steam
 
 1. Right Click on your Age of Empires IV game in your steam-library.
 2. Open the Properties/Settings
-3. Under <strong>Launch Options</strong> paste in following text:
+3. Under **Launch Options** paste in following text:
 
 ```
 -dev -enableRpc
@@ -51,9 +51,9 @@ For debugging your mods and gather information from the running Game, you need t
 
 ### Local installation
 
-1. If not done already, create a Desktop-Shortcut from your game. The Exe is usually called <strong>RelicCardinal.exe</strong>
+1. If not done already, create a Desktop-Shortcut from your game. The Exe is usually called **RelicCardinal.exe**
 2. On your Desktop-Shortcut, right click and open its properties.
-3. On the <strong>Path</strong> to your <strong>RelicCardinal.exe</strong>, add following text <strong>behind</strong> the path:
+3. On the **Path** to your **RelicCardinal.exe**, add following text **behind** the path:
 
 ```
 -dev -enableRpc

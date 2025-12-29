@@ -3,423 +3,63 @@ layout: default
 title: Generate Maps
 ---
 
-# Image API Documentation
+# Difference between Crafted and Generated Maps
 
-The Image API enables you to manage image assets in the Age of Empires IV Content Editor. This includes uploading, processing, optimizing, and organizing image files for use in mods and custom content.
+- Crafted Maps is the "easy" way to create maps for AoE IV without programming knowledge, but as I have experienced it can be a buggy and difficult challenge.
+Those maps does not, regenerate or much vary when you load into the match, neither it can have different map sizes, therefore you get the exact map as you created them 
+in the Content Editor manually.
 
-## Supported Formats
+- Generated Maps will generate each time a match starts, it leads to a more "random" map experience. Those maps vary and cannot be edited manually except by your code.
 
-The API supports the following image formats:
+| Feature | Crafted Maps | Generated Maps |
+|---------|--------------|----------------|
+| Map Generation | Manually editable, Fixed  | Regenerating by code, (Random) |
+| Map Size | Fixed size up to Large (16 Players) | Dynamic size, depending on the lobby settings |
+| Time consuming | Medium | Large |
+| Difficulty | Beginner* | Advanced* |
 
-- **PNG**: Best for UI elements and images with transparency
-- **JPEG**: Ideal for photographs and textured backgrounds
-- **DDS**: Native DirectDraw Surface format for game textures
-- **TGA**: Targa format for high-quality assets
-- **BMP**: Windows Bitmap format
+*Recommened by the Content Editor
 
-## Endpoints
+# Creating a Gererated Map project
+
+1. Open the Content Editor
+2. Under the **Get Started**, we select the **Create A New Mod** button
+3. From all the existing Mods we choose the **Generated Map** option
+
+## Template
+
+From there we can choose between 2 templates:
+
+- Basic: Includes basic instructions as an example, for beginners
+- Advanced: Also has example instructions but also rivers and ocean examples, for advanced mep generation
+
+We will **use the basic template** for our project.
+
+## Names
+
+The **Generated Map Name** has to be written **without!** any whitespaces or tabs. Otherwise the output log will give us an error.
+
+The **Display Name** is the name, which players can see inside the game.
+
+<div class="gif-frame">
+	<img src="https://raw.githubusercontent.com/callfreak/aoeiv-unoffical-api/refs/heads/main/assets/images/gifs/display_name.png" alt="Not Found" class="responsive-gif">
+</div>
+
+After pressing next you should add your mod description, set your save location and the language of your mod.
+When your done you can press **Fininsh**.
+
+## Programming Order
+
+<div class="info-box warning">
+    <strong>Note:</strong> If you haven't done any programming yet, I suggest you watch basic tutorials or check out the [Programming for beginners]({{ site.baseurl }}/docs/progamming-for-beginners) guide.
+</div>
+
+<svg style="left: 0px; top: 0px; width: 100%; height: 100%; display: block; min-width: 305px; min-height: 985px; background-image: none; background-color: transparent;"><g transformOrigin="0 0" transform="scale(1,1)translate(-152,-72)"><g></g><g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 220 120 L 220 169.88" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" visibility="hidden" stroke-width="9"></path><path d="M 220 120 L 220 169.88" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path><path d="M 220 178.88 L 215.5 169.88 L 224.5 169.88 Z" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" visibility="hidden" stroke-width="9"></path><path d="M 220 178.88 L 215.5 169.88 L 224.5 169.88 Z" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="160" y="80" width="120" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 100px; margin-left: 161px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Inital (Start)</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 220 260 L 220 349.88" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" visibility="hidden" stroke-width="9"></path><path d="M 220 260 L 220 349.88" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path><path d="M 220 358.88 L 215.5 349.88 L 224.5 349.88 Z" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" visibility="hidden" stroke-width="9"></path><path d="M 220 358.88 L 215.5 349.88 L 224.5 349.88 Z" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 220 180 L 270 220 L 220 260 L 170 220 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 90px; height: 1px; padding-top: 218px; margin-left: 175px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Create Grid</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 220 890 L 220 989.88" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" visibility="hidden" stroke-width="9"></path><path d="M 220 890 L 220 989.88" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path><path d="M 220 998.88 L 215.5 989.88 L 224.5 989.88 Z" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" visibility="hidden" stroke-width="9"></path><path d="M 220 998.88 L 215.5 989.88 L 224.5 989.88 Z" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 220 360 L 270 400 L 220 440 L 170 400 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 90px; height: 1px; padding-top: 398px; margin-left: 175px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Define<br>Grid Tiles</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="160" y="1000" width="120" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 1020px; margin-left: 161px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Map Generated(End)</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 220 440 L 220 569.88" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" visibility="hidden" stroke-width="9"></path><path d="M 220 440 L 220 569.88" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path><path d="M 220 578.88 L 215.5 569.88 L 224.5 569.88 Z" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" visibility="hidden" stroke-width="9"></path><path d="M 220 578.88 L 215.5 569.88 L 224.5 569.88 Z" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 220 580 L 270 620 L 220 660 L 170 620 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 90px; height: 1px; padding-top: 618px; margin-left: 175px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Define<br>Player Spawn</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 220 660 L 220 779.88" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" visibility="hidden" stroke-width="9"></path><path d="M 220 660 L 220 779.88" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path><path d="M 220 788.88 L 215.5 779.88 L 224.5 779.88 Z" fill="none" stroke="white" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" visibility="hidden" stroke-width="9"></path><path d="M 220 788.88 L 215.5 779.88 L 224.5 779.88 Z" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 220 790 L 270 840 L 220 890 L 170 840 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></path></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 90px; height: 1px; padding-top: 838px; margin-left: 175px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Game spawn<br>resources</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="160" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="160" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="160" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="200" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="200" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="200" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="240" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="240" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="240" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="360" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(51, 153, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="360" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(51, 153, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="360" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(102, 102, 102)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="400" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="400" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="400" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(102, 102, 102)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="440" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="440" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="440" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="560" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(51, 153, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="560" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(51, 153, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="560" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(102, 102, 102)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="600" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 38px; height: 1px; padding-top: 620px; margin-left: 321px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">1</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="600" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="600" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(102, 102, 102)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="640" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="640" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="640" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 38px; height: 1px; padding-top: 660px; margin-left: 401px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">2</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="780" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(51, 153, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 38px; height: 1px; padding-top: 800px; margin-left: 321px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Fish</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="780" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(51, 153, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="780" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(102, 102, 102)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="820" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 38px; height: 1px; padding-top: 840px; margin-left: 321px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">1</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="820" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 38px; height: 1px; padding-top: 840px; margin-left: 361px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Gold</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="820" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(102, 102, 102)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="320" y="860" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="360" y="860" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 38px; height: 1px; padding-top: 880px; margin-left: 361px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Deer</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="400" y="860" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(255, 255, 255), rgb(0, 204, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 38px; height: 1px; padding-top: 880px; margin-left: 401px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">2</div></div></div></foreignObject></g></g></g><g></g><g></g></g></svg>
 
 ### Upload Image
 
 Upload a new image asset to the Content Editor.
 
-<div class="api-method">
-<h4>POST /images/upload</h4>
-
-<div class="method-signature">
-POST /images/upload
-Content-Type: multipart/form-data
-</div>
-
-**Form Data Parameters:**
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| file | file | Yes | The image file to upload |
-| name | string | Yes | Name for the image asset |
-| category | string | No | Category (ui, texture, icon, etc.) |
-| tags | array | No | Array of tags for organization |
-
-**Example Request:**
-
-```javascript
-const formData = new FormData();
-formData.append('file', imageFile);
-formData.append('name', 'menu_background');
-formData.append('category', 'ui');
-formData.append('tags', JSON.stringify(['menu', 'background']));
-
-fetch('https://api.aoe4-content.example.com/v1/images/upload', {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer YOUR_API_KEY'
-    },
-    body: formData
-});
-```
-
-**Response:**
-
-```json
-{
-    "id": "img_001",
-    "name": "menu_background",
-    "format": "png",
-    "size": 2048576,
-    "dimensions": {
-        "width": 1920,
-        "height": 1080
-    },
-    "category": "ui",
-    "url": "https://cdn.aoe4-content.example.com/images/img_001.png",
-    "thumbnail_url": "https://cdn.aoe4-content.example.com/thumbs/img_001_thumb.png",
-    "created_at": "2025-12-28T12:00:00Z"
-}
-```
-</div>
-
-### List Images
-
-Retrieve a list of all image assets.
-
-<div class="api-method">
-<h4>GET /images</h4>
-
-<div class="method-signature">
-GET /images?page=1&limit=50&category=ui&format=png
-</div>
-
-**Query Parameters:**
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| page | integer | No | Page number (default: 1) |
-| limit | integer | No | Results per page (default: 50, max: 100) |
-| category | string | No | Filter by category |
-| format | string | No | Filter by format (png, jpg, dds, etc.) |
-| tags | string | No | Comma-separated list of tags |
-
-**Response:**
-
-```json
-{
-    "data": [
-        {
-            "id": "img_001",
-            "name": "menu_background",
-            "format": "png",
-            "size": 2048576,
-            "dimensions": {
-                "width": 1920,
-                "height": 1080
-            },
-            "category": "ui",
-            "url": "https://cdn.aoe4-content.example.com/images/img_001.png",
-            "thumbnail_url": "https://cdn.aoe4-content.example.com/thumbs/img_001_thumb.png"
-        }
-    ],
-    "pagination": {
-        "current_page": 1,
-        "total_pages": 5,
-        "total_items": 243
-    }
-}
-```
-</div>
-
-### Get Image Details
-
-Retrieve detailed information about a specific image.
-
-<div class="api-method">
-<h4>GET /images/:id</h4>
-
-<div class="method-signature">
-GET /images/img_001
-</div>
-
-**Response:**
-
-```json
-{
-    "id": "img_001",
-    "name": "menu_background",
-    "format": "png",
-    "size": 2048576,
-    "dimensions": {
-        "width": 1920,
-        "height": 1080
-    },
-    "category": "ui",
-    "tags": ["menu", "background"],
-    "metadata": {
-        "color_space": "sRGB",
-        "has_alpha": true,
-        "bit_depth": 32,
-        "compression": "none"
-    },
-    "urls": {
-        "original": "https://cdn.aoe4-content.example.com/images/img_001.png",
-        "thumbnail": "https://cdn.aoe4-content.example.com/thumbs/img_001_thumb.png",
-        "medium": "https://cdn.aoe4-content.example.com/medium/img_001_medium.png"
-    },
-    "created_at": "2025-12-28T12:00:00Z",
-    "updated_at": "2025-12-28T12:00:00Z"
-}
-```
-</div>
-
-### Update Image Metadata
-
-Update metadata for an existing image.
-
-<div class="api-method">
-<h4>PATCH /images/:id</h4>
-
-<div class="method-signature">
-PATCH /images/img_001
-</div>
-
-**Request Body:**
-
-```json
-{
-    "name": "main_menu_background",
-    "category": "ui",
-    "tags": ["menu", "background", "main"]
-}
-```
-
-**Response:**
-
-```json
-{
-    "id": "img_001",
-    "name": "main_menu_background",
-    "category": "ui",
-    "tags": ["menu", "background", "main"],
-    "updated_at": "2025-12-28T13:00:00Z"
-}
-```
-</div>
-
-### Delete Image
-
-Delete an image asset.
-
-<div class="api-method">
-<h4>DELETE /images/:id</h4>
-
-<div class="method-signature">
-DELETE /images/img_001
-</div>
-
-**Response:**
-
-```json
-{
-    "message": "Image deleted successfully",
-    "id": "img_001"
-}
-```
-</div>
-
-## Image Processing
-
-### Convert Image Format
-
-Convert an image to a different format.
-
-<div class="api-method">
-<h4>POST /images/:id/convert</h4>
-
-<div class="method-signature">
-POST /images/img_001/convert
-</div>
-
-**Request Body:**
-
-```json
-{
-    "target_format": "dds",
-    "options": {
-        "compression": "DXT5",
-        "mipmap": true
-    }
-}
-```
-
-**Response:**
-
-```json
-{
-    "id": "img_002",
-    "original_id": "img_001",
-    "name": "menu_background",
-    "format": "dds",
-    "size": 1536000,
-    "url": "https://cdn.aoe4-content.example.com/images/img_002.dds",
-    "created_at": "2025-12-28T13:15:00Z"
-}
-```
-</div>
-
-### Resize Image
-
-Create a resized version of an image.
-
-<div class="api-method">
-<h4>POST /images/:id/resize</h4>
-
-<div class="method-signature">
-POST /images/img_001/resize
-</div>
-
-**Request Body:**
-
-```json
-{
-    "width": 1280,
-    "height": 720,
-    "maintain_aspect": true,
-    "quality": 90
-}
-```
-
-**Response:**
-
-```json
-{
-    "id": "img_003",
-    "original_id": "img_001",
-    "name": "menu_background_1280x720",
-    "format": "png",
-    "dimensions": {
-        "width": 1280,
-        "height": 720
-    },
-    "url": "https://cdn.aoe4-content.example.com/images/img_003.png",
-    "created_at": "2025-12-28T13:20:00Z"
-}
-```
-</div>
-
-### Optimize Image
-
-Optimize an image for better performance without significant quality loss.
-
-<div class="api-method">
-<h4>POST /images/:id/optimize</h4>
-
-<div class="method-signature">
-POST /images/img_001/optimize
-</div>
-
-**Request Body:**
-
-```json
-{
-    "level": "aggressive",
-    "preserve_alpha": true,
-    "target_size_kb": 500
-}
-```
-
-**Optimization Levels:**
-
-- `minimal`: Light optimization, preserves maximum quality
-- `balanced`: Good balance between size and quality
-- `aggressive`: Maximum compression, some quality loss
-
-**Response:**
-
-```json
-{
-    "id": "img_004",
-    "original_id": "img_001",
-    "name": "menu_background_optimized",
-    "original_size": 2048576,
-    "optimized_size": 512000,
-    "size_reduction": "75%",
-    "url": "https://cdn.aoe4-content.example.com/images/img_004.png",
-    "created_at": "2025-12-28T13:25:00Z"
-}
-```
-</div>
-
-## Batch Operations
-
-### Bulk Upload Images
-
-Upload multiple images in a single request.
-
-<div class="api-method">
-<h4>POST /images/batch/upload</h4>
-
-<div class="method-signature">
-POST /images/batch/upload
-Content-Type: multipart/form-data
-</div>
-
-**Form Data:**
-
-```javascript
-const formData = new FormData();
-formData.append('files', file1);
-formData.append('files', file2);
-formData.append('files', file3);
-formData.append('category', 'icons');
-```
-
-**Response:**
-
-```json
-{
-    "uploaded": 3,
-    "failed": 0,
-    "images": [
-        {"id": "img_101", "name": "icon_01.png"},
-        {"id": "img_102", "name": "icon_02.png"},
-        {"id": "img_103", "name": "icon_03.png"}
-    ]
-}
-```
-</div>
-
-## Image Validation
-
-The API validates images for:
-
-- **Format compatibility**: Ensures the format is supported
-- **File size limits**: Maximum file size is 50MB per image
-- **Dimension limits**: Maximum dimensions are 8192x8192 pixels
-- **Color space**: Validates color space compatibility
-- **Corruption**: Checks for file corruption
-
-<div class="info-box warning">
-<strong>File Size Limit:</strong> Individual images cannot exceed 50MB. For larger files, consider optimizing before upload.
-</div>
-
-## Best Practices
-
-1. **Use appropriate formats**: DDS for textures, PNG for UI with transparency
-2. **Optimize before upload**: Compress images to reduce file sizes
-3. **Organize with tags**: Use consistent tagging for easy retrieval
-4. **Generate mipmaps**: Enable mipmaps for textures to improve performance
-5. **Batch operations**: Upload multiple images at once for efficiency
-6. **Use thumbnails**: Reference thumbnail URLs for preview purposes
-
-## Image Categories
-
-Common image categories:
-
-- `ui`: User interface elements
-- `texture`: Game textures and materials
-- `icon`: Icons and small graphics
-- `background`: Background images
-- `character`: Character portraits and sprites
-- `building`: Building textures and icons
-- `unit`: Unit sprites and icons
 
 ## Related
 
