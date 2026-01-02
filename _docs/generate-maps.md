@@ -245,7 +245,7 @@ Here I list my personally favorites to use:
 
 <div class="info-box warning">
     <strong>Note:</strong> It is not necessary to place tiles that provides extra resources, except you want too. Resources will be 
-	equality placed for each player after the map was created by the game itself. Same for the players start location.sa
+	equality placed for each player after the map was created by the game itself. Same for the players start location.
 </div>
 
 ### Map setup: Tiles
@@ -276,7 +276,7 @@ for row = 1, gridSize do
 end
 ```
 
-You can also add more loops and lines to set ur map up, but it needs to be in between:
+You can also add more loops and lines to set your map up, but it needs to be in between:
 ```lua
 terrainLayoutResult = SetUpGrid(gridSize, p, terrainLayoutResult)
 ```
@@ -286,10 +286,154 @@ and:
 teamsList, playersPerTeam = SetUpTeams()
 ```
 
+### Player start location
 
+Finally we setting up the players start location, there are many values where we can change spawning locations for players. We will go through each of them:
+
+<div class="info-box warning">
+    <strong>Note:</strong> Except we already set a player start location on the tile setup before, the game will automatically create a spawnpoint based on the 
+	setting from the lobby and the spawn method we will choose here.
+</div>
+
+```lua
+-- SETUP PLAYER STARTS-------------------------------------------------------------------------------------------------
+teamsList, playersPerTeam = SetUpTeams()
+
+teamMappingTable = CreateTeamMappingTable()
+	
+minPlayerDistance = 3.5
+
+minTeamDistance = 8.5
+
+edgeBuffer = 1
+
+innerExclusion = 0.4
+
+cornerThreshold = 2
+
+playerStartTerrain = tt_player_start_classic_plains
+
+impasseTypes = {}
+table.insert(impasseTypes, tt_impasse_mountains)
+table.insert(impasseTypes, tt_mountains)
+table.insert(impasseTypes, tt_plateau_med)
+table.insert(impasseTypes, tt_ocean)
+table.insert(impasseTypes, tt_river)
+
+impasseDistance = 2.5
+
+topSelectionThreshold = 0.02
+
+startBufferTerrain = tt_plains
+
+startBufferRadius = 2
+
+placeStartBuffer = true
+
+terrainLayoutResult = PlacePlayerStartsRing(teamMappingTable, minTeamDistance, minPlayerDistance, edgeBuffer, innerExclusion, cornerThreshold, impasseTypes, impasseDistance, topSelectionThreshold, playerStartTerrain, startBufferTerrain, startBufferRadius, placeStartBuffer, terrainLayoutResult)
+```
+
+In the first part we get players information from the lobby settings like: **Team Lists and Players per Team**. After this we create a detailed list of the teams for this lobby
+with players information.
+```lua
+teamsList, playersPerTeam = SetUpTeams()
+
+teamMappingTable = CreateTeamMappingTable()
+```
+
+The minimum space between players:
+```lua
+minPlayerDistance = 3.5
+```
+
+Minimum space between teams:
+```lua
+minTeamDistance = 8.5
+```
+
+Tiles between **the Edge of the Map** and the player:
+```lua
+edgeBuffer = 1
+```
+
+(In Percentage!) Defining in what area the players can **not spawn** away from the center tile -> 0.4 means 40% from from center of the map -> this results in
+a 20% in left, right, up. down direction where no players are allowed to spawn.
+```lua
+innerExclusion = 0.4
+```
+
+Tiles between **the Corner of the Map** and the player:
+```lua
+cornerThreshold = 2
+```
+
+Tiles on where players spawn and information about their starting resources:
+```lua
+playerStartTerrain = tt_player_start_classic_plains
+```
+
+Impasse types are tiles where players cannot spawn on, additional to the previous settings. All tiles we insert prevent the generator from spawning a player on this 
+terrain type. Like for example oceans or rivers:
+```lua
+impasseTypes = {}
+table.insert(impasseTypes, tt_impasse_mountains)
+table.insert(impasseTypes, tt_mountains)
+table.insert(impasseTypes, tt_plateau_med)
+table.insert(impasseTypes, tt_ocean)
+table.insert(impasseTypes, tt_river)
+```
+
+The distance from the player to the defined Impasse Types is set here:
+```lua
+impasseDistance = 2.5
+```
+
+**topSelectionThreshold** controls how small the "best spawn area" should be.
+The system sorts all spawn locations by distance to the allies, then it only keeps a small percentage of the closest ones.
+
+Example:
+A value of 0.02 means only the closest 2% of all spawn points are allowed.
+If the map has 500 possible spawn locations, 2% of 500 = 10.
+So only the 10 closest positions will be used for spawning.
+
+<div class="info-box warning">
+    Smaller value = allies spawn very close together. 
+	Larger value = more spawn options, allies can be farther apart.
+</div>
+
+```lua
+topSelectionThreshold = 0.02
+```
+
+Start Buffer Terrain:
+
+This buffer terrain, ensure that around the players start location is enough space or building... Its optional but recommended. 
+The **startBufferTerrain** tells the type of terrain(Make sure it fits your created map tiles, otherwise you may encounter **Evalutaion differencies**).
+The **startBufferRadius** it the tile radius around the player spawn, on which the **startBufferTerrain** will be override your set up terrain.
+**placeStartBuffer** and here we can choose if we want to use the Buffer Terrain **true** or if we do not want **false**.
+
+```lua
+startBufferTerrain = tt_plains
+
+startBufferRadius = 2
+
+placeStartBuffer = true
+```
+
+Finally: How should the game spawn our players? In a ring? In a line? We will do that here:
+```lua
+-- Places players in a ring formation
+terrainLayoutResult = PlacePlayerStartsRing(teamMappingTable, minTeamDistance, minPlayerDistance, edgeBuffer, innerExclusion, cornerThreshold, impasseTypes, impasseDistance, topSelectionThreshold, playerStartTerrain, startBufferTerrain, startBufferRadius, placeStartBuffer, terrainLayoutResult)
+```
+
+<div class="info-box warning">
+    <strong>Note:</strong>The other spawn formations can be found here: NaN
+</div>
+
+## Next steps:
+- Create a [Basic Mountain pass]({{ site.baseurl }}/docs/basic-moutain-pass)
 
 ## Related
 
-- [Text API Documentation]({{ site.baseurl }}/docs/text-api)
-- [Code Examples]({{ site.baseurl }}/docs/examples)
-- [API Reference]({{ site.baseurl }}/docs/reference)
+- Browse the [API reference]({{ site.baseurl }}/docs/api)
+- [Debug your Mod]({{ site.baseurl }}/docs/debug-your-mod)
