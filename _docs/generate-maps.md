@@ -193,7 +193,7 @@ gridSize = gridWidth
 playerStarts = worldPlayerCount
 ```
 
-### Tile definitions
+### Tile definitions (Terrain-Types)
 
 After the start section you can find also some (optional) declarations of terrain information per tile:
 
@@ -242,6 +242,51 @@ Here I list my personally favorites to use:
 | Impasse | No passable by units, like mountains |
 | Settlement | Sometimes called markets |
 | Market | Sometimes called settlements |
+
+<div class="info-box warning">
+    <strong>Note:</strong> It is not necessary to place tiles that provides extra resources, except you want too. Resources will be 
+	equality placed for each player after the map was created by the game itself. Same for the players start location.sa
+</div>
+
+### Map setup: Tiles
+
+This is where we will spend our most time(appart from the game). Here we tell each tile of our map, what kind of terrain it will use.
+The most simple way is to use **For loops** -> Iterates each column and row of our grid(iterating). That means instead of writing 20+ lines of code,
+we have it all central in 1 place(but its your choice). It also wont matter how big the grid size will be, since the loop always iterate through **all** tiles.
+
+```lua
+--BASIC MAP SETUP-------------------------------------------------------------------------------------------------
+terrainLayoutResult = SetUpGrid(gridSize, p, terrainLayoutResult)
+
+baseGridSize = 13
+mapMidPoint = math.ceil(gridSize / 2)
+
+--set a few more useful values to use in creating specific types of map features
+mapHalfSize = math.ceil(gridSize/2)
+mapQuarterSize = math.ceil(gridSize/4)
+mapEighthSize = math.ceil(gridSize/8)
+
+--Here's a basic loop that will iterate through all tiles in your map
+for row = 1, gridSize do
+	for col = 1, gridSize do
+	
+	--do stuff with the grid here
+	
+	end
+end
+```
+
+You can also add more loops and lines to set ur map up, but it needs to be in between:
+```lua
+terrainLayoutResult = SetUpGrid(gridSize, p, terrainLayoutResult)
+```
+
+and:
+```lua
+teamsList, playersPerTeam = SetUpTeams()
+```
+
+
 
 ## Related
 
