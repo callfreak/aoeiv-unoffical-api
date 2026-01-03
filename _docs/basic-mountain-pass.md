@@ -74,3 +74,124 @@ When we **build the mod(F7)** now and run this map in Age of Empires IV it will 
 
 Very similar to the **Dry Arabica Map**, our map just contains plain tiles and is very much flat and our players has been set automatically in a circle-like spawn area. 
 Also the ressources has been placed automatically by the game.
+
+After we make the whole map as plain terrain, we will make a straight vertical mountain line, therefore we use another **for loop**.
+
+1. For each Row, we get the middle point of the map
+2. The middle point we just got, will be set to be moutain terrain by using: **tt_mountains**
+
+```lua
+mapHalfSize = math.ceil(gridSize/2)
+mapQuarterSize = math.ceil(gridSize/4)
+mapEighthSize = math.ceil(gridSize/8)
+
+--Here's a basic loop that will iterate through all squares in your map
+for row = 1, gridSize do
+	for col = 1, gridSize do
+	
+	--do stuff with the grid here
+	terrainLayoutResult[row][col].terrainType = tt_plains
+	end
+end
+
+--Make the mountains on each ROW at the midpoint of the map
+for row = 1, gridSize do
+	
+	terrainLayoutResult[row][mapHalfSize].terrainType = tt_mountains
+	
+end
+
+-- SETUP PLAYER STARTS-------------------------------------------------------------------------------------------------
+```
+
+Now our tile layout looks like this:
+<svg style="left: 0px; top: 0px; width: 100%; height: 100%; display: block; min-width: 305px; min-height: 365px; background-image: none; background-color: transparent;"><g transformOrigin="0 0" transform="scale(1,1)translate(-372,-242)"><g></g><g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="380" y="310" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="420" y="310" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="460" y="310" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="380" y="350" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="420" y="350" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="460" y="350" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="380" y="390" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="420" y="390" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="460" y="390" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="540" y="310" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="580" y="310" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="620" y="310" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="540" y="350" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="580" y="350" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="620" y="350" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="540" y="390" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="580" y="390" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="620" y="390" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="540" y="470" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="580" y="470" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="620" y="470" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="540" y="510" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="580" y="510" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="620" y="510" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="540" y="550" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="580" y="550" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="620" y="550" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="380" y="470" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="420" y="470" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="460" y="470" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="380" y="510" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="420" y="510" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="460" y="510" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="380" y="550" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="420" y="550" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="460" y="550" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="380" y="430" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="420" y="430" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="460" y="430" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="500" y="430" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="500" y="390" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="500" y="350" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="500" y="310" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="540" y="430" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="580" y="430" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="620" y="430" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="500" y="470" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="500" y="510" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="500" y="550" width="40" height="40" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="380" y="250" width="20" height="20" fill="#ffffff" stroke="none" pointer-events="all" style="fill: light-dark(rgb(0, 153, 0), rgb(0, 153, 0));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="420" y="250" width="60" height="20" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="420" y="250" width="60" height="20" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 58px; height: 1px; padding-top: 260px; margin-left: 422px;"><div style="box-sizing: border-box; font-size: 0; text-align: left; color: #ffffff; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#ffffff, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Plains</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="380" y="280" width="20" height="20" fill="#ffffff" stroke="none" pointer-events="all" style="fill: light-dark(rgb(102, 102, 102), rgb(102, 102, 102));"></rect></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="420" y="280" width="60" height="20" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="420" y="280" width="60" height="20" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%"><div style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 58px; height: 1px; padding-top: 290px; margin-left: 422px;"><div style="box-sizing: border-box; font-size: 0; text-align: left; color: #ffffff; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: light-dark(#ffffff, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Mountains</div></div></div></foreignObject></g></g></g><g></g><g></g></g></svg>
+
+It will be generated this way:
+<div class="gif-frame">
+	<img src="https://raw.githubusercontent.com/callfreak/aoeiv-unoffical-api/refs/heads/main/assets/images/mountain_circularspawn.png" alt="Not Found" class="responsive-gif">
+</div>
+
+# Player spawns
+
+We can see that, the teams are not seperated on the sides of the mountains, it still spawn them as a circle. We have 2 ways now:
+
+1. Instead of a circular spawn, we want to use the **PlacePlayerStartsDivided**, to ensure players are divided on each side of the mountains
+2. Set the player spawn, mathematically on the tiles on both sides
+
+We gonna use 1. since it alrady does, what we want to archive. The parameters are almost same to the **PlacePlayerStartsRing** except for the vertical direction:
+
+The direction is either vertical(true) or horizontal(false). So we create a new variable and place it **behind cornerThreshold** in the parameters:
+
+```lua
+placeStartBuffer = true
+
+-- true since we created the mountains on each ROW at their center / otherwise we would had done it at each column's center
+isVertical = true
+
+-- Dont forget to add the isVertical AFTER the cornerThreshold
+terrainLayoutResult = PlacePlayerStartsDivided(teamMappingTable, minTeamDistance, minPlayerDistance, edgeBuffer, innerExclusion, cornerThreshold, isVertical, impasseTypes, impasseDistance, topSelectionThreshold, playerStartTerrain, startBufferTerrain, startBufferRadius, placeStartBuffer, terrainLayoutResult)
+```
+
+The new result will look like this:
+<div class="gif-frame">
+	<img src="https://raw.githubusercontent.com/callfreak/aoeiv-unoffical-api/refs/heads/main/assets/images/mountain_dividedspawn.png" alt="Not Found" class="responsive-gif">
+</div>
+
+But actually we want our spawn points to be more equally set... On each size we choose so I changed a few settings:
+```lua
+-- SETUP PLAYER STARTS-------------------------------------------------------------------------------------------------
+teamsList, playersPerTeam = SetUpTeams()
+
+teamMappingTable = CreateTeamMappingTable()
+
+-- CHANGED -> from 3.5 to 8. We want bigger distances between the players and since our map is pretty empty
+-- (Except for the mountains) we can increase this value
+minPlayerDistance = 8
+
+minTeamDistance = 8.5
+
+edgeBuffer = 1
+
+-- CHANGED -> from 0.4 to 0.5. We can also increase our distance to the center in such an open map.
+innerExclusion = 0.5
+
+cornerThreshold = 2
+
+playerStartTerrain = tt_player_start_classic_plains
+
+impasseTypes = {}
+table.insert(impasseTypes, tt_impasse_mountains)
+table.insert(impasseTypes, tt_mountains)
+table.insert(impasseTypes, tt_plateau_med)
+table.insert(impasseTypes, tt_ocean)
+table.insert(impasseTypes, tt_river)
+
+impasseDistance = 2.5
+
+-- CHANGED -> from 0.02 to 0.1. We have now a options of spawning about 10% instead of the strict 2%, it will increase the chance
+-- to pick further locations from another player.
+topSelectionThreshold = 0.02
+
+startBufferTerrain = tt_plains
+
+startBufferRadius = 2
+
+placeStartBuffer = true
+
+-- true since we created the mountains on each ROW at their center / otherwise we would had done it at each column's center
+isVertical = true
+
+-- Dont forget to add the isVertical AFTER the cornerThreshold
+terrainLayoutResult = PlacePlayerStartsDivided(teamMappingTable, minTeamDistance, minPlayerDistance, edgeBuffer, innerExclusion, cornerThreshold, isVertical, impasseTypes, impasseDistance, topSelectionThreshold, playerStartTerrain, startBufferTerrain, startBufferRadius, placeStartBuffer, terrainLayoutResult)
+```
+
+Our result in medium, large and gigantic maps looks like this:
+<div class="gif-frame">
+	<img src="https://raw.githubusercontent.com/callfreak/aoeiv-unoffical-api/refs/heads/main/assets/images/mountain_dividedequalyspawn.png" alt="Not Found" class="responsive-gif">
+</div>
+
+## Related
+
+- Browse the [API reference]({{ site.baseurl }}/docs/api)
+- [Debug your Mod]({{ site.baseurl }}/docs/debug-your-mod)

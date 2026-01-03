@@ -431,6 +431,7 @@ terrainLayoutResult = PlacePlayerStartsRing(teamMappingTable, minTeamDistance, m
 </div>
 
 ## Next steps:
+
 - Create a [Basic Mountain pass]({{ site.baseurl }}/docs/basic-moutain-pass)
 
 ## Related
