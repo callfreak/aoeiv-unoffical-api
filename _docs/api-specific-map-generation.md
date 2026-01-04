@@ -9,14 +9,14 @@ Complete reference documentation for the Age of Empires IV Content Editor API.
 
 <div class="tab-container">
  <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('text', event)">Text API</button>
-    <button class="tab-btn" onclick="switchTab('image', event)">Image API</button>
-    <button class="tab-btn" onclick="switchTab('auth', event)">Authentication</button>
+    <button class="tab-btn active" onclick="switchTab('text', event)">Tools</button>
+    <button class="tab-btn" onclick="switchTab('image', event)">Player Spawn</button>
+    <!-- <button class="tab-btn" onclick="switchTab('auth', event)">Authentication</button> -->
 </div>
     
 <div id="tab-text" class="tab-content active">
 
-<h2>Text API Endpoints</h2>
+<h2>Tools</h2>
         
 <h3>Endpoints Summary</h3>
         
@@ -30,7 +30,7 @@ Complete reference documentation for the Age of Empires IV Content Editor API.
 </thead>
 <tbody>
     <tr>
-        <td>GET</td>
+        <td><a href="{{ site.baseurl }}/docs/generate-maps" style="display:block; width:100%; height:100%;">GET</a></td>
         <td>/text/entries</td>
         <td>List all text entries</td>
     </tr>
@@ -108,12 +108,12 @@ Complete reference documentation for the Age of Empires IV Content Editor API.
 </div>
     
 <div id="tab-image" class="tab-content">
-<h2>Image API Endpoints</h2>
+<h2>Player Spawn</h2>
         
 <h3>Endpoints Summary</h3>
 </div>
     
-<div id="tab-auth" class="tab-content">
+<!-- <div id="tab-auth" class="tab-content">
 
 <h2>Authentication</h2>
         
@@ -121,7 +121,7 @@ Complete reference documentation for the Age of Empires IV Content Editor API.
         
 <p>All API requests require authentication using an API key. Include the API key in the Authorization header:</p>
 
-</div>
+</div> -->
 
 <script>
 function switchTab(tabName, event) {
