@@ -10,12 +10,12 @@ title: API
 <h3>
 <a href="{{ site.baseurl }}/docs/api-specific-map-generation">MAP GENERATION</a>
 </h3>
-Methods and functions for procedual map generation. [Here]({{ site.baseurl }}/docs/api_docs/specific-map-generation)
+Methods and functions for procedual map generation.
 
 <h3>
 <a href="{{ site.baseurl }}/docs/api-specific-modding">MODDING</a>
 </h3>
-Methods and functions for gameplay modding. [Here]({{ site.baseurl }}/docs/api_docs/specific-modding)
+Methods and functions for gameplay modding.
 
 <h3>
 <a href="{{ site.baseurl }}/docs/api-example-code">EXAMPLE CODE</a>
