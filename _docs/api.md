@@ -7,16 +7,20 @@ title: API
 
 <div class="api-method">
 
-## MAP GENERATION
+<h3>
+<a href="{{ site.baseurl }}/docs/api-specific-map-generation">MAP GENERATION</a>
+</h3>
 Methods and functions for procedual map generation. [Here]({{ site.baseurl }}/docs/api_docs/specific-map-generation)
 
-## MODDING
+<h3>
+<a href="{{ site.baseurl }}/docs/api-specific-modding">MODDING</a>
+</h3>
 Methods and functions for gameplay modding. [Here]({{ site.baseurl }}/docs/api_docs/specific-modding)
 
-<h2>
-<a href="{{ site.baseurl }}/docs/api_docs/example-code">EXAMPLE CODE></a>
-</h2>
-Examples and nice-to-know snippets of code for reuse. [Here]({{ site.baseurl }}/docs/api_docs/example-code)
+<h3>
+<a href="{{ site.baseurl }}/docs/api-example-code">EXAMPLE CODE</a>
+</h3>
+Examples and nice-to-know snippets of code for reuse.
 
 </div>
 
