@@ -269,15 +269,16 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Lists */
-ul, ol {
-    margin-bottom: 1rem;
-    padding-left: 2rem;
+.code-link {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    background-color: var(--code-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    color: var(--accent-primary);
 }
 
-li {
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
+.code-link:hover {
+    color: var(--accent-secondary);
 }
 
 /* Code Blocks */
@@ -303,6 +304,17 @@ pre code {
     background-color: transparent;
     padding: 0;
     border-radius: 0;
+    color: var(--text-primary);
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
     color: var(--text-primary);
 }
 

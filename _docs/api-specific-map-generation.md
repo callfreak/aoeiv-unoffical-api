@@ -30,7 +30,7 @@ Complete reference documentation for the Age of Empires IV Content Editor API.
 </thead>
 <tbody>
     <tr>
-        <td><a href="{{ site.baseurl }}/docs/generate-maps" style="display:block; width:100%; height:100%;">GET</a></td>
+        <td><a href="{{ site.baseurl }}/docs/generate-maps" class="code-link">GET</a></td>
         <td>/text/entries</td>
         <td>List all text entries</td>
     </tr>
