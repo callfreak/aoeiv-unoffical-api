@@ -343,14 +343,6 @@ td {
     color: var(--text-primary);
 }
 
-.tr-link{
-    cursor: pointer;
-}
-
-.tr-link:hover {
-    background-color: var(--bg-tertiary);
-}
-
 tr:last-child td {
     border-bottom: none;
 }

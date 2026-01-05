@@ -24,58 +24,29 @@ Complete reference documentation for the Age of Empires IV Content Editor API.
 <thead>
     <tr>
         <th>Method</th>
-        <th>Endpoint</th>
+        <th>Category</th>
         <th>Description</th>
     </tr>
 </thead>
 <tbody>
-    <tr class="tr-link">
-        <td><a href="{{ site.baseurl }}/docs/generate-maps" class="code-link">GET</a></td>
-        <td>/text/entries</td>
-        <td>List all text entries</td>
-    </tr>
     <tr>
+        <td><a href="{{ site.baseurl }}/docs/api-worldgetrandom" class="code-link">worldGetRandom()</a></td>
+        <td>Math</td>
+        <td>Get a random number(Multiplayer valid)</td>
+    </tr>
+    <!-- <tr>
         <td>GET</td>
         <td>/text/entries/:id</td>
         <td>Get a specific text entry</td>
-    </tr>
-    <tr>
-        <td>POST</td>
-        <td>/text/entries</td>
-        <td>Create a new text entry</td>
-    </tr>
-    <tr>
-        <td>PUT</td>
-        <td>/text/entries/:id</td>
-        <td>Update a text entry</td>
-    </tr>
-    <tr>
-        <td>DELETE</td>
-        <td>/text/entries/:id</td>
-        <td>Delete a text entry</td>
-    </tr>
-    <tr>
-        <td>POST</td>
-        <td>/text/batch</td>
-        <td>Bulk create text entries</td>
-    </tr>
-    <tr>
-        <td>POST</td>
-        <td>/text/entries/:id/translations</td>
-        <td>Add a translation</td>
-    </tr>
-    <tr>
-        <td>POST</td>
-        <td>/text/export</td>
-        <td>Export text entries</td>
-    </tr>
+    </tr> -->
 </tbody>
 </table>
         
-<h3>Common Parameters</h3>
+<!-- <h3>Common Parameters</h3>
         
-<h4>Text Entry Object</h4>
-<pre><code>{
+<h4>Text Entry Object</h4> -->
+
+<!-- <pre><code>{
     "id": "string",
     "key": "string",
     "value": "string",
@@ -88,23 +59,23 @@ Complete reference documentation for the Age of Empires IV Content Editor API.
     "created_at": "datetime",
     "updated_at": "datetime"
 }
-</code></pre>
+</code></pre> -->
         
-<h4>Supported Locales</h4>
-<ul>
+<!-- <h4>Supported Locales</h4> -->
+<!-- <ul>
     <li>en-US - English (United States)</li>
     <li>en-GB - English (United Kingdom)</li>
-</ul>
+</ul> -->
         
-<h4>Text Categories</h4>
-<ul>
+<!-- <h4>Text Categories</h4> -->
+<!-- <ul>
     <li><code>ui</code> - User interface text</li>
     <li><code>gameplay</code> - Gameplay messages</li>
     <li><code>tutorial</code> - Tutorial text</li>
     <li><code>story</code> - Story/campaign text</li>
     <li><code>mod</code> - Mod-specific text</li>
     <li><code>error</code> - Error messages</li>
-</ul>
+</ul> -->
 </div>
     
 <div id="tab-image" class="tab-content">
