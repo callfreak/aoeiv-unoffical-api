@@ -15,10 +15,8 @@ Complete reference documentation for the Age of Empires IV Content Editor API.
 </div>
     
 <div id="tab-text" class="tab-content active">
-
-<h2>Tools</h2>
         
-<h3>Endpoints Summary</h3>
+<h3>Endpoints</h3>
         
 <table>
 <thead>
@@ -34,11 +32,26 @@ Complete reference documentation for the Age of Empires IV Content Editor API.
         <td>Math</td>
         <td>Get a random number(Multiplayer valid)</td>
     </tr>
-    <!-- <tr>
-        <td>GET</td>
-        <td>/text/entries/:id</td>
-        <td>Get a specific text entry</td>
-    </tr> -->
+    <tr>
+        <td><a href="{{ site.baseurl }}/docs/api-getrandominrange" class="code-link">GetRandomInRange()</a></td>
+        <td>Math</td>
+        <td>Get a random number in a specified range</td>
+    </tr>
+    <tr>
+        <td><a href="{{ site.baseurl }}/docs/api-geteightneighbors" class="code-link">Get8Neighbors()</a></td>
+        <td>Terrain layout</td>
+        <td>Get all 8 neighbors of a tile</td>
+    </tr>
+    <tr>
+        <td><a href="{{ site.baseurl }}/docs/api-getneighbors" class="code-link">GetNeighbors()</a></td>
+        <td>Terrain layout</td>
+        <td>Get all 4 direct neighbors of a tile</td>
+    </tr>
+    <tr>
+        <td><a href="{{ site.baseurl }}/docs/api-getallsquaresinradius" class="code-link">GetAllSquaresInRadius()</a></td>
+        <td>Terrain layout</td>
+        <td>Get all tiles in a specified radius from a tile</td>
+    </tr>
 </tbody>
 </table>
         

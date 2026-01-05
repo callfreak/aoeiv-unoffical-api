@@ -1,9 +1,10 @@
 ---
 layout: default
-title: Modding
+title: worldGetRandom()
 ---
 
 # worldGetRandom
+worldGetRandom()
 
 ## Description
 
@@ -12,3 +13,12 @@ that all players recieve the **same random number**. Whithout using this functio
 
 ## Parameters
 
+| Name | Type | Description |
+|------|------|-------------|
+| None | - | - |
+
+## Returns
+
+| Type | Description |
+|------|-------------|
+| Float | Random number between 0.0 and 1.0 |
