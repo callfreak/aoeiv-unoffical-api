@@ -262,11 +262,16 @@ a {
     color: var(--accent-primary);
     text-decoration: none;
     transition: color 0.2s ease;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 a:hover {
-    color: var(--accent-secondary);
-    text-decoration: underline;
+    color: var(--text-primary);
+    background-color: var(--accent-secondary);
+    border-radius: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 .code-link {
@@ -356,7 +361,7 @@ tr:last-child td {
     border-radius: 6px;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -364,8 +369,8 @@ tr:last-child td {
 .btn:hover {
     background-color: var(--accent-secondary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
     text-decoration: none;
+    color: white;
 }
 
 /* Quick Links Section */
