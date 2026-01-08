@@ -171,7 +171,7 @@ impasseDistance = 2.5
 
 -- CHANGED -> from 0.02 to 0.1. We have now a options of spawning about 10% instead of the strict 2%, it will increase the chance
 -- to pick further locations from another player.
-topSelectionThreshold = 0.02
+topSelectionThreshold = 0.1
 
 startBufferTerrain = tt_plains
 

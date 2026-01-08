@@ -9,7 +9,7 @@ Get8Neighbors(int x, int y, table terrainLayoutResult)
 ## Description
 
 By settings the coordinate of the tile, it returns all 8 neighbors of the tile.
-Using with caution when setting the coordinate to an edge of the map.
+Using with caution when setting the coordinate to an edge of the map, those will be excluded.
 
 ## Parameters
 
