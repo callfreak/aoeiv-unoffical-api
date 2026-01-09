@@ -189,11 +189,30 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="{{ site.baseurl }}/docs/reference" class="nav-link{% if page.url contains '/reference' %} active{% endif %}">
-                            API Reference
-                        </a>
-                    </li> -->
+                    <li class="nav-item nav-item-expandable{% if page.url contains '/how-to' %} expanded{% endif %}">
+                        <div class="nav-link-wrapper">
+                            <a class="nav-link{% if page.url contains '/how-to' %} active{% endif %}">
+                                How-To Guides
+                            </a>
+                            <button class="nav-toggle" aria-label="Toggle submenu">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="nav-sublist">
+                            <li class="nav-subitem">
+                                <a href="{{ site.baseurl }}/docs/how-to-modicon" class="nav-sublink">
+                                    Mod Icon
+                                </a>
+                            </li>
+                            <li class="nav-subitem">
+                                <a href="{{ site.baseurl }}/docs/how-to-translate" class="nav-sublink">
+                                    Localization / Translation
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
