@@ -32,8 +32,8 @@ myNeighbors = GetAllSquaresInRadius(x, y, radius, terrainLayoutResult)
 
 for myNeighborIndex, neighbor in ipairs(myNeighbors) do
 							
-	currentNeighborRow = neighbor.x 
-	currentNeighborCol = neighbor.y 
+	currentNeighborRow = neighbor[1]
+	currentNeighborCol = neighbor[2]
 	
 	-- do something cool here
 end
